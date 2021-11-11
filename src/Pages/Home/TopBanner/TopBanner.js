@@ -4,6 +4,7 @@ import Grid from '@mui/material/Grid';
 import topbanner from '../../../images/topbanner.jpg'
 import { Button, Typography } from '@mui/material';
 import topbg from '../../../images/topbg.jpg'
+import { Link } from 'react-router-dom';
 
 
 //............. tobackground..........
@@ -39,7 +40,7 @@ const TopBanner = () => {
            <Typography variant="h6" sx={{mb:5}}>
             We design and curate world-class toys and games, while providing an extraordinary customer experience. Whether you're shopping for Christmas, Hanukkah, or a special birthday, we have the toys and games that will make a difference in a child's life.
            </Typography>
-           <Button variant="contained" sx={{mb:5}}>More Products</Button>
+           <Link to="/moreproducts"> <Button variant="contained" sx={{mb:5}}>More Products</Button></Link>
           </Box>
         </Grid>
         
