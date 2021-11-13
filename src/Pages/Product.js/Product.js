@@ -41,7 +41,7 @@ const Product = (props) => {
 
       </CardContent>
       <CardActions>
-       <Link style={{marginLeft:'100px'}} to={`/order/${_id}`}> <Button sx={{ml:'40%'}} variant="contained" >Buy Now</Button></Link>
+       <Link style={{marginLeft:'100px'}} to={`/order/${_id}`}> <Button sx={{width: 'auto'}} variant="contained" >Buy Now</Button></Link>
       </CardActions>
     </Card> 
 

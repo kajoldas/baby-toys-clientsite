@@ -13,7 +13,7 @@
 
 * Responsive Banner, Header and Footer added for Different Types of Device and Screens.
 
-* Live Site Link:  
+* Hosting URL: https://baby-toys-website.web.app 
 * Server Source Code:     
  
 * Client Site Code:

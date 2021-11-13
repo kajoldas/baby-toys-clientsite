@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import Home from './Pages/Home/Home/Home';
 import Header from './Pages/Shared/Header/Header';
-import AddProducts from './Pages/Add Products/AddProducts';
+
 import NotFound from './Pages/NotFound/NotFound'
 import AddReview from './Pages/AddReview/AddReview'
 import Order from './Pages/Order/Order';
@@ -17,9 +17,8 @@ import PrivateRoute from './Pages/Login/Login/PrivateRoute/PrivateRoute';
 import DashBoard from './Pages/DashBoard/DashBoard/DashBoard';
 import AllProducts from './Pages/AllProducts/AllProducts';
 import ManageProduct from './Pages/ManageProduct/ManageProduct';
-import Pay from './Pages/Pay/Pay';
 import MyOrders from './Pages/MyOrders/MyOrders';
-import Product from './Pages/Product.js/Product';
+import AddProduct from './Pages/DashBoard/AddProduct/AddProduct';
 
 
 function App() {
@@ -39,7 +38,7 @@ function App() {
               <AllProducts></AllProducts>
             </Route>
             <Route path="/products">
-              <Product></Product>
+              
             </Route>
             <PrivateRoute path="/order/:orderId">
               <Order></Order>
@@ -54,23 +53,21 @@ function App() {
               <Register></Register>
             </Route>
             <PrivateRoute path="/add-products">
-              <AddProducts></AddProducts>
+              <AddProduct></AddProduct>
             </PrivateRoute>
             <PrivateRoute path="/add-reviews">
               <AddReview></AddReview>
             </PrivateRoute>
-            <PrivateRoute path="/add-reviews">
-              <AddReview></AddReview>
-            </PrivateRoute>
+            {/* <PrivateRoute path="/add-reviews">
+              <Add
+            </PrivateRoute> */}
             <PrivateRoute path="/dashboard">
               <DashBoard></DashBoard>
             </PrivateRoute>
             <PrivateRoute path="/manage-products">
               <ManageProduct></ManageProduct>
             </PrivateRoute>
-            <PrivateRoute path="/pay">
-              <Pay></Pay>
-            </PrivateRoute>
+            
             <PrivateRoute path="/my-orders">
               <MyOrders></MyOrders>
             </PrivateRoute>

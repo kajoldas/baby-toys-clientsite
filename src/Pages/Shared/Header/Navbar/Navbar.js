@@ -25,7 +25,7 @@ const Navbar = () => {
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} >
-            BaBy Toys Website
+              Baby Toys
             </Typography >
             <Link to="/home"><Button style={{color:'white'}} variant="text" >Home</Button></Link>
             <Link to="/all-products"><Button style={{color:'white'}} variant="text" >Explore </Button></Link>
@@ -34,6 +34,12 @@ const Navbar = () => {
               <Box>
                   <NavLink to="/DashBoard">
                 <Button style={{color:'white', textDecoration:'none'}} variant="text" color="inherit" >DashBoard</Button>
+                </NavLink>
+                  <NavLink to="/add-reviews">
+                <Button style={{color:'white', textDecoration:'none'}} variant="text" color="inherit" >Add Reviews</Button>
+                </NavLink>
+                  <NavLink to="/add-products">
+                <Button style={{color:'white', textDecoration:'none'}} variant="text" color="inherit" >Add Product</Button>
                 </NavLink>
                 <NavLink onClick={logOut} to="/logout">
                   <Button style={{color:'white'}} variant="text" color="inherit" >Logout</Button>

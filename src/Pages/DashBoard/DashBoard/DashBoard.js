@@ -19,12 +19,30 @@ import Orders from '../Orders/Orders';
 import { NavLink } from 'react-router-dom';
 import { Button } from '@mui/material';
 import useAuth from '../../../hooks/useAuth';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useParams,
+  useRouteMatch
+} from "react-router-dom";
+import DashboardHome from '../DashBoardHome/DashboardHome';
+import MakeAdmin from '../MakeAdmin/MakeAdmin';
+import AddProduct from '../AddProduct/AddProduct';
+import Pay from './Pay/Pay';
+import AddReview from '../../AddReview/AddReview';
+import Order from '../../Order/Order';
 
-const drawerWidth = 240;
+
+
+const drawerWidth = 180;
 
 function DashBoard(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
+
+  let { path, url } = useRouteMatch(); 
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -34,18 +52,33 @@ function DashBoard(props) {
     <div>
       <Toolbar />
       <Divider />
-        <NavLink to="/pay">
+        <Link to={`${url}/pay`} >
                     <Button style={{color:'Black', textDecoration:'none'}} variant="contained"color="inherit" >Pay</Button>
-        </NavLink>
-        <NavLink to="/my-orders">
+        </Link>
+        <Link to={`${url}/my-orders`}>
                     <Button style={{color:'Black', textDecoration:'none'}} variant="contained"color="inherit" >My Orders</Button>
-        </NavLink>
-        <NavLink to="/add-reviews">
+        </Link>
+        <Link to="/AddReviews">
                     <Button style={{color:'Black'}} variant="contained" color="inherit" >Reviews</Button>
-        </NavLink>
-        <NavLink onClick={logOut} to="/login">
+        </Link>
+        <Link onClick={logOut} to="/login">
                   <Button style={{color:'black'}} variant="contained" color="inherit" >Logout</Button>
-                  </NavLink>
+          </Link>
+          <Link to={`${url}/manageAllOrder`}>
+                    <Button style={{color:'Black', textDecoration:'none'}} variant="contained"color="inherit" >Manage All Order</Button>
+        </Link>
+          <Link to={`${url}/addProduct`}>
+                    <Button style={{color:'Black', textDecoration:'none'}} variant="contained"color="inherit" >Add Product</Button>
+        </Link>
+          <Link to={`${url}/makeAdmin`}>
+                    <Button style={{color:'Black', textDecoration:'none'}} variant="contained"color="inherit" >Make Admin</Button>
+        </Link>
+          <Link to={`${url}/manageAllProduct`}>
+                    <Button style={{color:'Black', textDecoration:'none'}} variant="contained"color="inherit" >Manage All Product</Button>
+        </Link>
+        <Link onClick={logOut} to="/login">
+                  <Button style={{color:'black'}} variant="contained" color="inherit" >Logout</Button>
+          </Link>
       <List>
         {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
           <ListItem button key={text}>
@@ -129,8 +162,32 @@ function DashBoard(props) {
           -------------------Edit Below---------------------
           ********************************************* */}
 
-          <Orders></Orders>
-
+<Switch>
+        <Route exact path={path}>
+          <DashboardHome></DashboardHome>
+        </Route>
+        <Route path={`${path}/pay`}>
+            <Pay></Pay>
+        </Route>   
+        <Route path={`${path}/myOrders`}>
+            
+        </Route>   
+        <Route path={`${path}/AddReviews`}>
+            <AddReview></AddReview>
+        </Route>   
+        <Route path={`${path}/manageAllOrder`}>
+            <Order></Order>
+        </Route>   
+        <Route path={`${path}/addProduct`}>
+            <AddProduct></AddProduct>
+        </Route>   
+        <Route path={`${path}/makeAdmin`}>
+            <MakeAdmin></MakeAdmin>
+        </Route>   
+        <Route path={`${path}/makeAdmin`}>
+            <MakeAdmin></MakeAdmin>
+        </Route>   
+      </Switch>
 
       </Box>
     </Box>

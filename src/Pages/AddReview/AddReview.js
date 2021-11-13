@@ -12,7 +12,7 @@ const AddProducts = () => {
 
   const onSubmit = data => {
       console.log(data)
-        axios.post('http://localhost:5000/reviews', data )
+        axios.post('https://mysterious-refuge-43253.herokuapp.com/reviews', data )
         .then(res => {
             console.log(res)
             if(res.data.insertedId){

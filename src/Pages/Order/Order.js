@@ -19,7 +19,7 @@ const Order = () => {
     const onSubmit = data => {
         data.email = user.email;
         console.log(data)
-          axios.post('http://localhost:5000/place-order', data )
+          axios.post('https://mysterious-refuge-43253.herokuapp.com/place-order', data )
           .then(res => {
               console.log(res)
               if(res.data.insertedId){
@@ -32,7 +32,7 @@ const Order = () => {
 
     //   console.log(product);
     useEffect( () => {
-        fetch(`http://localhost:5000/products/${orderId}`)
+        fetch(`https://mysterious-refuge-43253.herokuapp.com/products/${orderId}`)
             .then(res => res.json())
             .then(data => setProduct(data))
     }, [])
@@ -43,7 +43,7 @@ const Order = () => {
             <h2>This is booking, Id no: {orderId}</h2>
 
 
-            <div  className="order">
+            <div >
                 <Grid  container spacing={2}>
                   <Grid xs={12} md={6}>
                   <form style={{ display: 'flex',  flexDirection: 'column' , justifyContent:'center', padding:'100px', margin:'50px' }} className="form" onSubmit={handleSubmit(onSubmit)}>
@@ -60,7 +60,7 @@ const Order = () => {
                   </Grid>  
                   <Grid  xs={12} md={6} >
                         <h1>Product Detail</h1>
-                      <img style={{ justifyContent:'center', alignItems:"center" , paddingTop:'80px', margin:'10px' }} src={product?.img} alt="" />
+                      <img style={{ justifyContent:'center', alignItems:"center" , paddingTop:'200px', margin:'10px' }} src={product?.img} alt="" />
                         <h1>{product?.name}</h1>
                         <p>  {product?.description}</p>     
                         <h4> Price: {product?.price}</h4>     

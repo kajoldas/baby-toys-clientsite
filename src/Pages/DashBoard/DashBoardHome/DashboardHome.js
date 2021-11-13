@@ -8,19 +8,21 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
-const Orders = () => {
+
+const DashboardHome = () => {
     const {user} = useAuth();
     const[orders, setOrders] = useState([]);
 
     useEffect(() => {
         const url = `https://mysterious-refuge-43253.herokuapp.com/orders?email=${user.email}`      //to find order using individual email
-                             //to find all order 
+                            
         fetch(url)
         .then(res => res.json())
         .then(data => setOrders(data))
     }, [])
     return (
         <div>
+            <div>
             <h1>Total Orders: {orders.length}</h1>
 
             <TableContainer component={Paper}>
@@ -54,7 +56,8 @@ const Orders = () => {
     </TableContainer>
             
         </div>
+        </div>
     );
 };
 
-export default Orders;
+export default DashboardHome;

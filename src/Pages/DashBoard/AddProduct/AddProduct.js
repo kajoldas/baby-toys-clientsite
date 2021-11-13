@@ -1,24 +1,25 @@
-import axios from 'axios';
 import React from 'react';
+import axios from 'axios';
 import { useForm } from "react-hook-form";
 import './AddProduct.css'
 
-const AddProducts = () => {
+const AddProduct = () => {
     const { register, handleSubmit, reset } = useForm();
 
-  const onSubmit = data => {
-      console.log(data)
-        axios.post('https://mysterious-refuge-43253.herokuapp.com/products', data )
-        .then(res => {
-            console.log(res)
-            if(res.data.insertedId){
-                alert('Product Added Successfully')
-                reset();
-            }
-        })
-    };
+    const onSubmit = data => {
+        console.log(data)
+          axios.post('https://mysterious-refuge-43253.herokuapp.com/products', data )
+          .then(res => {
+              console.log(res)
+              if(res.data.insertedId){
+                  alert('Product Added Successfully')
+                  reset();
+              }
+          })
+      };
     return (
-        <div className="product">
+        <div>
+            <div className="product">
             <h1>Add Product </h1>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <input {...register("name")} placeholder="Title" />
@@ -28,7 +29,8 @@ const AddProducts = () => {
                 <input className="btn btn-primary" type="submit" />
             </form>
         </div>
+        </div>
     );
 };
 
-export default AddProducts;
+export default AddProduct;
